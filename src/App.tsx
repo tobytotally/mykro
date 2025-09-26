@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { BrandProvider } from './contexts/BrandContext';
 import { FrontendApp } from './apps/frontend/FrontendApp';
