@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zen": {
+      "command": "/mnt/d/dev/claude-projects/mykro/zen-mcp-server/.zen_venv/bin/python",
+      "args": ["/mnt/d/dev/claude-projects/mykro/zen-mcp-server/server.py"]
+    }
+  }
+}
