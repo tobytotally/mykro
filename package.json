@@ -15,7 +15,7 @@
     "screenshot:betting-states": "npx tsx scripts/betting-slip-states.ts",
     "screenshot:betting-states:mobile": "npx tsx scripts/betting-slip-states.ts --mobile",
     "screenshot:betting-states:all": "npx tsx scripts/betting-slip-states.ts --all",
-    "deploy:gh-pages": "npm run build && gh-pages -d dist",
+    "deploy:gh-pages": "npx vite build && gh-pages -d dist",
     "deploy:build": "npm run build && npm run preview"
   },
   "dependencies": {
