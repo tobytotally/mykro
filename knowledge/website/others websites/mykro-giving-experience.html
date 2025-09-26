@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mykro.giving - Mykro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-sage: #7C9885;
+            --soft-mint: #B5C9B7;
+            --warm-sand: #F5F0E6;
+            --deep-forest: #2C4A3D;
+            --charcoal: #2B2B2B;
+            --soft-gray: #F8F7F5;
+            --cream: #FEFDFB;
+            --accent-terra: #B67162;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-wrapper {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(254, 253, 251, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        .ecosystem-bar {
+            background: var(--deep-forest);
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .ecosystem-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ecosystem-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .ecosystem-links a:hover {
+            opacity: 1;
+        }
+
+        .ecosystem-links a.active {
+            opacity: 1;
+            font-weight: 600;
+        }
+
+        nav {
+            background: var(--cream);
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--deep-forest);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-sage);
+        }
+
+        .donate-btn {
+            background: var(--primary-sage);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .donate-btn:hover {
+            background: var(--deep-forest);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(44, 74, 61, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--soft-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 152, 133, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            max-width: 800px;
+            line-height: 1.2;
+            color: var(--deep-forest);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn-primary {
+            background: var(--primary-sage);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--deep-forest);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(44, 74, 61, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--deep-forest);
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            border: 2px solid var(--primary-sage);
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-sage);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Impact Counter */
+        .impact-counter {
+            background: var(--cream);
+            padding: 60px 0;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.02);
+        }
+
+        .counter-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .counter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .counter-item {
+            padding: 30px;
+            background: var(--soft-gray);
+            border-radius: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(124, 152, 133, 0.08);
+        }
+
+        .counter-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .counter-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-sage);
+            margin-bottom: 10px;
+        }
+
+        .counter-label {
+            font-size: 18px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Impact Stories */
+        .impact-stories {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .stories-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--deep-forest);
+        }
+
+        .section-header p {
+            font-size: 20px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: var(--cream);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(124, 152, 133, 0.08);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--soft-mint), var(--primary-sage));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .story-card:hover .story-image::after {
+            opacity: 1;
+        }
+
+        .story-content {
+            padding: 30px;
+        }
+
+        .story-tag {
+            display: inline-block;
+            background: var(--warm-sand);
+            color: var(--accent-terra);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .story-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--deep-forest);
+        }
+
+        .story-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .story-impact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-sage);
+            font-weight: 600;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--soft-gray);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            background: white;
+            border: 1px solid rgba(124, 152, 133, 0.08);
+        }
+
+        .step-card:hover {
+            background: var(--cream);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            color: white;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--deep-forest);
+        }
+
+        .step-description {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--deep-forest);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-white {
+            background: var(--cream);
+            color: var(--deep-forest);
+            padding: 16px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Live Ticker */
+        .live-ticker {
+            background: var(--accent-terra);
+            color: white;
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            padding: 0 40px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ticker-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .hero-buttons { flex-direction: column; }
+            .nav-links { display: none; }
+            .counter-grid { grid-template-columns: 1fr; }
+            .stories-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="nav-wrapper">
+        <div class="ecosystem-bar">
+            <div class="ecosystem-content">
+                <span>Part of the mykro ecosystem</span>
+                <div class="ecosystem-links">
+                    <a href="#">mykro.co</a>
+                    <a href="#" class="active">mykro.giving</a>
+                    <a href="#">mykro.solutions</a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="nav-content">
+                <a href="#" class="logo">mykro.giving</a>
+                <div class="nav-links">
+                    <a href="#impact">Our Impact</a>
+                    <a href="#charities">Charities</a>
+                    <a href="#stories">Stories</a>
+                    <a href="#about">About</a>
+                    <a href="#donate" class="donate-btn">Donate Now</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Live Ticker -->
+    <div class="live-ticker">
+        <div class="ticker-content">
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>Sarah just donated £50 to Save the Children</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>Tech Corp rounded up £2,847 this month</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>Water Aid received £15,000 from payment round-ups</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>1,247 new donors joined this week</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>Sarah just donated £50 to Save the Children</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>Tech Corp rounded up £2,847 this month</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>Water Aid received £15,000 from payment round-ups</span>
+            </div>
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                <span>1,247 new donors joined this week</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Where Every Payment Has Purpose</h1>
+            <p>Transform your everyday transactions into extraordinary impact. Join thousands making a difference with every purchase.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Start Giving Today</a>
+                <a href="#" class="btn-secondary">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Counter -->
+    <section class="impact-counter">
+        <div class="counter-content">
+            <h2 style="font-size: 36px; margin-bottom: 40px; color: #2C4A3D;">Real Impact, Real Change</h2>
+            <div class="counter-grid">
+                <div class="counter-item">
+                    <div class="counter-number">£2.5M+</div>
+                    <div class="counter-label">Total Donated</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number">50K+</div>
+                    <div class="counter-label">Active Donors</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number">150+</div>
+                    <div class="counter-label">Partner Charities</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-number">98%</div>
+                    <div class="counter-label">Goes to Causes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stories -->
+    <section class="impact-stories" id="stories">
+        <div class="stories-content">
+            <div class="section-header">
+                <h2>Stories of Change</h2>
+                <p>Every donation tells a story. Every transaction creates impact.</p>
+            </div>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Education</span>
+                        <h3 class="story-title">Building Tomorrow's Leaders</h3>
+                        <p class="story-description">Your round-ups helped build 3 new schools in rural Kenya, providing education to over 500 children.</p>
+                        <div class="story-impact">
+                            <span>💚</span>
+                            <span>500 lives changed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-image"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Healthcare</span>
+                        <h3 class="story-title">Healing Communities</h3>
+                        <p class="story-description">Mobile health clinics funded by micro-donations reached 10,000 families in remote areas.</p>
+                        <div class="story-impact">
+                            <span>💚</span>
+                            <span>10,000 families helped</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-image"></div>
+                    <div class="story-content">
+                        <span class="story-tag">Environment</span>
+                        <h3 class="story-title">Growing Green Future</h3>
+                        <p class="story-description">Together we've planted 50,000 trees, offsetting carbon and creating sustainable livelihoods.</p>
+                        <div class="story-impact">
+                            <span>💚</span>
+                            <span>50,000 trees planted</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="stories-content">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Making a difference has never been easier</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">1</div>
+                    <h3 class="step-title">Shop Normally</h3>
+                    <p class="step-description">Use mykro-powered payment systems at your favorite retailers and online stores.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">2</div>
+                    <h3 class="step-title">Round Up</h3>
+                    <p class="step-description">Choose to round up your purchase to the nearest pound, with the difference going to charity.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">3</div>
+                    <h3 class="step-title">Create Impact</h3>
+                    <p class="step-description">Your micro-donations combine with thousands of others to create meaningful change.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Make Every Payment Count?</h2>
+            <p>Join the movement of conscious consumers creating positive change with every transaction.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-white">Get Started</a>
+                <a href="#" class="btn-white">View All Charities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>For Donors</h4>
+                    <a href="#">How It Works</a>
+                    <a href="#">Browse Charities</a>
+                    <a href="#">Impact Reports</a>
+                    <a href="#">Tax Benefits</a>
+                </div>
+                <div class="footer-column">
+                    <h4>For Charities</h4>
+                    <a href="#">Partner With Us</a>
+                    <a href="#">Success Stories</a>
+                    <a href="#">Resources</a>
+                    <a href="#">Apply Now</a>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <a href="#">Our Mission</a>
+                    <a href="#">Transparency</a>
+                    <a href="#">Annual Report</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="footer-column">
+                    <h4>mykro Ecosystem</h4>
+                    <a href="#">mykro.co - Corporate</a>
+                    <a href="#">mykro.solutions - Developers</a>
+                    <a href="#">Careers at mykro</a>
+                    <a href="#">Press & Media</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 mykro.giving. Part of the mykro ecosystem. Registered charity number 1234567.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animate counters
+        const animateCounter = (element, target) => {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                if (element.textContent.includes('£')) {
+                    element.textContent = `£${(current / 1000000).toFixed(1)}M+`;
+                } else if (element.textContent.includes('K')) {
+                    element.textContent = `${Math.floor(current / 1000)}K+`;
+                } else if (element.textContent.includes('%')) {
+                    element.textContent = `${Math.floor(current)}%`;
+                } else {
+                    element.textContent = `${Math.floor(current)}+`;
+                }
+            }, 20);
+        };
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter-number');
+                    counters.forEach(counter => {
+                        const text = counter.textContent;
+                        let target = 0;
+                        if (text.includes('2.5M')) target = 2500000;
+                        else if (text.includes('50K')) target = 50000;
+                        else if (text.includes('150')) target = 150;
+                        else if (text.includes('98')) target = 98;
+                        animateCounter(counter, target);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const counterSection = document.querySelector('.impact-counter');
+        if (counterSection) {
+            observer.observe(counterSection);
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

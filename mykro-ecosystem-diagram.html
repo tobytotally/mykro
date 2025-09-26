@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mykro Ecosystem Process Diagram</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .diagram-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border: 2px solid #000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #000;
+            margin-bottom: 30px;
+        }
+        svg {
+            width: 100%;
+            height: auto;
+        }
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            fill: #000;
+        }
+        .box-text {
+            font-size: 12px;
+            fill: #000;
+        }
+        .small-text {
+            font-size: 10px;
+            fill: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h1>Mykro Ecosystem Process Diagram</h1>
+        
+        <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+            <!-- Define gradients and shadows -->
+            <defs>
+                <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.2"/>
+                </filter>
+                
+                <!-- User section gradient -->
+                <linearGradient id="userGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+                </linearGradient>
+                
+                <!-- Frontend section gradient -->
+                <linearGradient id="frontendGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+                </linearGradient>
+                
+                <!-- Process section gradient -->
+                <linearGradient id="processGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                </linearGradient>
+                
+                <!-- Data section gradient -->
+                <linearGradient id="dataGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f8f8f8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#ebebeb;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            
+            <!-- Users Section -->
+            <g id="users-section">
+                <rect x="20" y="20" width="1160" height="100" fill="url(#userGradient)" stroke="#000" stroke-width="2" filter="url(#shadow)"/>
+                <text x="600" y="45" text-anchor="middle" class="section-title">USERS</text>
+                
+                <!-- Bettor -->
+                <rect x="150" y="60" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="250" y="85" text-anchor="middle" class="box-text">👤 Bettor/User</text>
+                
+                <!-- Operator Admin -->
+                <rect x="500" y="60" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="600" y="85" text-anchor="middle" class="box-text">👔 Operator Admin</text>
+                
+                <!-- Donor -->
+                <rect x="850" y="60" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="950" y="85" text-anchor="middle" class="box-text">💝 Donor</text>
+            </g>
+            
+            <!-- Frontend Applications Section -->
+            <g id="frontend-section">
+                <rect x="20" y="140" width="1160" height="200" fill="url(#frontendGradient)" stroke="#000" stroke-width="2" filter="url(#shadow)"/>
+                <text x="600" y="165" text-anchor="middle" class="section-title">FRONTEND APPLICATIONS</text>
+                
+                <!-- Betting Platform -->
+                <g>
+                    <rect x="50" y="180" width="350" height="140" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="225" y="200" text-anchor="middle" class="box-text" font-weight="bold">Betting Platform</text>
+                    
+                    <rect x="70" y="215" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="145" y="235" text-anchor="middle" class="small-text">Browse Matches</text>
+                    
+                    <rect x="230" y="215" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="305" y="235" text-anchor="middle" class="small-text">Bet Slip</text>
+                    
+                    <rect x="70" y="255" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="145" y="275" text-anchor="middle" class="small-text">Mykro Toggle</text>
+                    
+                    <rect x="230" y="255" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="305" y="275" text-anchor="middle" class="small-text">Place Bet</text>
+                </g>
+                
+                <!-- Operator Dashboard -->
+                <g>
+                    <rect x="425" y="180" width="350" height="140" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="600" y="200" text-anchor="middle" class="box-text" font-weight="bold">Operator Dashboard</text>
+                    
+                    <rect x="445" y="215" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="520" y="235" text-anchor="middle" class="small-text">Analytics</text>
+                    
+                    <rect x="605" y="215" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="680" y="235" text-anchor="middle" class="small-text">Charity Mgmt</text>
+                    
+                    <rect x="445" y="255" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="520" y="275" text-anchor="middle" class="small-text">Theme Config</text>
+                    
+                    <rect x="605" y="255" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="680" y="275" text-anchor="middle" class="small-text">Reports</text>
+                </g>
+                
+                <!-- Donor Portal -->
+                <g>
+                    <rect x="800" y="180" width="350" height="140" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="975" y="200" text-anchor="middle" class="box-text" font-weight="bold">Donor Portal</text>
+                    
+                    <rect x="820" y="215" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="895" y="235" text-anchor="middle" class="small-text">Impact Dashboard</text>
+                    
+                    <rect x="980" y="215" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="1055" y="235" text-anchor="middle" class="small-text">Portfolio</text>
+                    
+                    <rect x="820" y="255" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="895" y="275" text-anchor="middle" class="small-text">Giving History</text>
+                    
+                    <rect x="980" y="255" width="150" height="30" fill="#f9f9f9" stroke="#666" stroke-width="1" rx="3"/>
+                    <text x="1055" y="275" text-anchor="middle" class="small-text">Impact Stories</text>
+                </g>
+            </g>
+            
+            <!-- Core Processes Section -->
+            <g id="process-section">
+                <rect x="20" y="360" width="1160" height="120" fill="url(#processGradient)" stroke="#000" stroke-width="2" filter="url(#shadow)"/>
+                <text x="600" y="385" text-anchor="middle" class="section-title">CORE PROCESSES</text>
+                
+                <rect x="100" y="405" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="200" y="425" text-anchor="middle" class="box-text">Donation Calculator</text>
+                <text x="200" y="440" text-anchor="middle" class="small-text">1-10% of stake</text>
+                
+                <rect x="350" y="405" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="450" y="425" text-anchor="middle" class="box-text">Theme Extractor</text>
+                <text x="450" y="440" text-anchor="middle" class="small-text">Analyze competitors</text>
+                
+                <rect x="600" y="405" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="700" y="430" text-anchor="middle" class="box-text">Bet Processor</text>
+                
+                <rect x="850" y="405" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="950" y="430" text-anchor="middle" class="box-text">Donation Tracker</text>
+            </g>
+            
+            <!-- Data Models Section -->
+            <g id="data-section">
+                <rect x="20" y="500" width="1160" height="120" fill="url(#dataGradient)" stroke="#000" stroke-width="2" filter="url(#shadow)"/>
+                <text x="600" y="525" text-anchor="middle" class="section-title">DATA MODELS</text>
+                
+                <rect x="100" y="545" width="180" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="190" y="570" text-anchor="middle" class="box-text">🗄️ User</text>
+                
+                <rect x="330" y="545" width="180" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="420" y="570" text-anchor="middle" class="box-text">🗄️ Bet</text>
+                
+                <rect x="560" y="545" width="180" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="650" y="570" text-anchor="middle" class="box-text">🗄️ Charity</text>
+                
+                <rect x="790" y="545" width="180" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="880" y="570" text-anchor="middle" class="box-text">🗄️ Operator</text>
+                
+                <rect x="1020" y="545" width="180" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5" style="display:none"/>
+                <text x="1110" y="570" text-anchor="middle" class="box-text" style="display:none">🗄️ MykroAccount</text>
+            </g>
+            
+            <!-- Flow Arrows -->
+            <g id="flow-arrows">
+                <!-- User to Frontend flows -->
+                <line x1="250" y1="100" x2="225" y2="180" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <line x1="600" y1="100" x2="600" y2="180" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <line x1="950" y1="100" x2="975" y2="180" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                
+                <!-- Frontend to Process flows -->
+                <line x1="225" y1="320" x2="200" y2="405" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <line x1="600" y1="320" x2="450" y2="405" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <line x1="305" y1="320" x2="700" y2="405" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                
+                <!-- Process to Data flows -->
+                <line x1="200" y1="455" x2="190" y2="545" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <line x1="700" y1="455" x2="420" y2="545" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <line x1="950" y1="455" x2="650" y2="545" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                
+                <!-- Arrow marker definition -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+                    </marker>
+                </defs>
+            </g>
+            
+            <!-- External Integrations -->
+            <g id="external-section">
+                <rect x="20" y="640" width="1160" height="120" fill="#f5f5f5" stroke="#000" stroke-width="2" stroke-dasharray="5,5" filter="url(#shadow)"/>
+                <text x="600" y="665" text-anchor="middle" class="section-title">EXTERNAL INTEGRATIONS</text>
+                
+                <rect x="200" y="685" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="300" y="705" text-anchor="middle" class="box-text">API-Football</text>
+                <text x="300" y="720" text-anchor="middle" class="small-text">Sports Data</text>
+                
+                <rect x="500" y="685" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="600" y="705" text-anchor="middle" class="box-text">Supabase</text>
+                <text x="600" y="720" text-anchor="middle" class="small-text">Database</text>
+                
+                <rect x="800" y="685" width="200" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                <text x="900" y="705" text-anchor="middle" class="box-text">Payment Gateway</text>
+                <text x="900" y="720" text-anchor="middle" class="small-text">Transactions</text>
+            </g>
+        </svg>
+        
+        <div style="margin-top: 40px; border-top: 2px solid #000; padding-top: 20px;">
+            <h2 style="text-align: center; color: #000;">Key Business Flows</h2>
+            
+            <svg viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Betting Flow -->
+                <g>
+                    <text x="600" y="30" text-anchor="middle" class="section-title">BETTING WITH DONATION FLOW</text>
+                    
+                    <!-- Flow boxes -->
+                    <rect x="50" y="60" width="140" height="60" fill="#f9f9f9" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="120" y="85" text-anchor="middle" class="box-text">Browse</text>
+                    <text x="120" y="100" text-anchor="middle" class="small-text">Matches</text>
+                    
+                    <rect x="230" y="60" width="140" height="60" fill="#f9f9f9" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="300" y="85" text-anchor="middle" class="box-text">Add to</text>
+                    <text x="300" y="100" text-anchor="middle" class="small-text">Bet Slip</text>
+                    
+                    <rect x="410" y="60" width="140" height="60" fill="#f9f9f9" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="480" y="85" text-anchor="middle" class="box-text">Toggle</text>
+                    <text x="480" y="100" text-anchor="middle" class="small-text">Donation</text>
+                    
+                    <rect x="590" y="60" width="140" height="60" fill="#f9f9f9" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="660" y="85" text-anchor="middle" class="box-text">Adjust %</text>
+                    <text x="660" y="100" text-anchor="middle" class="small-text">(1-10%)</text>
+                    
+                    <rect x="770" y="60" width="140" height="60" fill="#f9f9f9" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="840" y="85" text-anchor="middle" class="box-text">Place Bet</text>
+                    <text x="840" y="100" text-anchor="middle" class="small-text">+ Donation</text>
+                    
+                    <rect x="950" y="60" width="140" height="60" fill="#f9f9f9" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="1020" y="85" text-anchor="middle" class="box-text">View Impact</text>
+                    <text x="1020" y="100" text-anchor="middle" class="small-text">Result</text>
+                    
+                    <!-- Flow arrows -->
+                    <line x1="190" y1="90" x2="230" y2="90" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="370" y1="90" x2="410" y2="90" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="550" y1="90" x2="590" y2="90" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="730" y1="90" x2="770" y2="90" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                    <line x1="910" y1="90" x2="950" y2="90" stroke="#000" stroke-width="2" marker-end="url(#arrowhead)"/>
+                </g>
+                
+                <!-- Data Relationships -->
+                <g>
+                    <text x="600" y="180" text-anchor="middle" class="section-title">DATA RELATIONSHIPS</text>
+                    
+                    <rect x="200" y="210" width="120" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="260" y="240" text-anchor="middle" class="box-text">User</text>
+                    
+                    <rect x="400" y="210" width="120" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="460" y="240" text-anchor="middle" class="box-text">Bet</text>
+                    
+                    <rect x="600" y="210" width="120" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="660" y="240" text-anchor="middle" class="box-text">Charity</text>
+                    
+                    <rect x="800" y="210" width="120" height="50" fill="#fff" stroke="#000" stroke-width="1" rx="5"/>
+                    <text x="860" y="240" text-anchor="middle" class="box-text">Operator</text>
+                    
+                    <!-- Relationship lines -->
+                    <line x1="320" y1="235" x2="400" y2="235" stroke="#000" stroke-width="1"/>
+                    <text x="360" y="230" text-anchor="middle" class="small-text">places</text>
+                    
+                    <line x1="520" y1="235" x2="600" y2="235" stroke="#000" stroke-width="1"/>
+                    <text x="560" y="230" text-anchor="middle" class="small-text">donates to</text>
+                    
+                    <line x1="720" y1="235" x2="800" y2="235" stroke="#000" stroke-width="1"/>
+                    <text x="760" y="230" text-anchor="middle" class="small-text">manages</text>
+                </g>
+                
+                <!-- Key Stats -->
+                <g>
+                    <rect x="300" y="300" width="600" height="80" fill="#f0f0f0" stroke="#000" stroke-width="2" rx="5"/>
+                    <text x="600" y="325" text-anchor="middle" class="section-title">KEY METRICS</text>
+                    
+                    <text x="400" y="355" text-anchor="middle" class="box-text">Donation Range: 1-10%</text>
+                    <text x="600" y="355" text-anchor="middle" class="box-text">Default: 5%</text>
+                    <text x="800" y="355" text-anchor="middle" class="box-text">Multi-Platform Tracking</text>
+                </g>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>

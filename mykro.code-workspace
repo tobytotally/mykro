@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"testing.alwaysRevealTestOnStateChange": true,
+		"debug.confirmOnExit": "always",
+		"workbench.iconTheme": "vs-minimal",
+		"window.autoDetectColorScheme": false
+	}
+	"workbench.colorCustomizations": {
+  "titleBar.activeBackground": "#553955" // change this color!
+}
+}

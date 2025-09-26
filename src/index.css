@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Default theme variables */
+    --theme-headerBg: #ffffff;
+    --theme-headerText: #111827;
+    --theme-navBg: #f9fafb;
+    --theme-navText: #4b5563;
+    --theme-navHover: #e5e7eb;
+    --theme-navActive: #111827;
+    
+    --theme-primary: #111827;
+    --theme-primaryHover: #374151;
+    --theme-primaryText: #ffffff;
+    
+    --theme-secondary: #8b5cf6;
+    --theme-secondaryHover: #7c3aed;
+    --theme-secondaryText: #ffffff;
+    
+    --theme-background: #f9fafb;
+    --theme-surface: #ffffff;
+    --theme-border: #e5e7eb;
+    --theme-text: #111827;
+    --theme-textMuted: #6b7280;
+    
+    --theme-slipBg: #ffffff;
+    --theme-slipBorder: #d1d5db;
+    --theme-slipHeader: #f3f4f6;
+    
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    
+    --theme-font-family: Inter, system-ui, sans-serif;
+    --theme-font-base: 16px;
+    --theme-font-sm: 14px;
+    --theme-font-lg: 18px;
+    --theme-font-xl: 20px;
+    
+    --theme-border-radius: 0.5rem;
+    --theme-spacing-scale: 1;
+    --theme-button-radius: 0.5rem;
+    --theme-card-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--theme-font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--theme-background);
+    color: var(--theme-text);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--theme-heading-font, var(--theme-font-family));
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+  
+  .mykro-gradient {
+    @apply bg-gradient-to-r from-green-500 to-blue-500;
+  }
+  
+  .betting-slip {
+    @apply fixed right-4 top-24 w-80 bg-white rounded-lg shadow-lg border border-gray-200 p-4 z-50;
+  }
+}
+
+/* Theme-aware utility classes */
+.theme-bg-primary {
+  background-color: var(--theme-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--theme-secondary);
+}
+
+.theme-text-primary {
+  color: var(--theme-primaryText);
+}
+
+.theme-text-secondary {
+  color: var(--theme-secondaryText);
+}
+
+.theme-border {
+  border-color: var(--theme-border);
+}
+
+.theme-surface {
+  background-color: var(--theme-surface);
+}
+
+/* Spacing utilities that respect theme scale */
+.theme-spacing {
+  padding: calc(1rem * var(--theme-spacing-scale));
+}
+
+.theme-spacing-sm {
+  padding: calc(0.5rem * var(--theme-spacing-scale));
+}
+
+.theme-spacing-lg {
+  padding: calc(1.5rem * var(--theme-spacing-scale));
+}

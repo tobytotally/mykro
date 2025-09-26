@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git clone:*)",
+      "Bash(ls:*)",
+      "Bash(./run-server.sh:*)",
+      "Bash(cat:*)",
+      "Bash(find:*)",
+      "Bash(env)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(git pull:*)",
+      "Bash(npm install)",
+      "WebFetch(domain:localhost)",
+      "mcp__filesystem__read_file",
+      "mcp__filesystem__list_allowed_directories",
+      "Bash(grep:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(mv:*)",
+      "mcp__filesystem__search_files",
+      "Bash(echo $env:USERPROFILE)",
+      "Bash(rename:*)",
+      "Bash(rm:*)",
+      "Bash(tail:*)",
+      "Bash(npx tsc:*)",
+      "Bash(sed:*)",
+      "Bash(npx eslint:*)",
+      "Bash(node:*)",
+      "Bash(npx prettier:*)",
+      "Bash(awk:*)",
+      "Bash(wc:*)",
+      "Bash(touch:*)",
+      "Bash(copy:*)",
+      "Bash(npm start)",
+      "mcp__browser-tools__takeScreenshot",
+      "Bash(npm run:*)",
+      "Bash(npx playwright:*)",
+      "Bash(git init:*)",
+      "Bash(npx vite:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "zen"
+  ]
+}

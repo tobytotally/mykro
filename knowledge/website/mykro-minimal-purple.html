@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Showcase - Mykro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Grayscale Palette */
+            --black: #000000;
+            --gray-900: #0A0A0A;
+            --gray-800: #1A1A1A;
+            --gray-700: #2E2E2E;
+            --gray-600: #4A4A4A;
+            --gray-500: #6B6B6B;
+            --gray-400: #8E8E8E;
+            --gray-300: #B0B0B0;
+            --gray-200: #D4D4D4;
+            --gray-100: #EBEBEB;
+            --gray-50: #F7F7F7;
+            --white: #FFFFFF;
+            
+            /* Subtle Accent Colors */
+            --accent-green: #7C4DFF;
+            --accent-blue: #2196F3;
+            --accent-gold: #FFB300;
+            
+            /* Typography */
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .section {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: 80px;
+        }
+
+        /* Logo Section */
+        .logo-showcase {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 80px;
+            margin-bottom: 120px;
+        }
+
+        .logo-variant {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo-frame {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--gray-50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-100);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .logo-mark svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--black);
+            letter-spacing: -0.02em;
+        }
+
+        .variant-label {
+            font-size: 13px;
+            color: var(--gray-600);
+            letter-spacing: 0.02em;
+        }
+
+        /* Banner Section */
+        .banner-showcase {
+            margin-bottom: 120px;
+        }
+
+        .banner {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner h2 {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .banner-accent {
+            color: var(--accent-green);
+        }
+
+        .banner p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .banner-cta {
+            display: inline-block;
+            background: var(--white);
+            color: var(--black);
+            padding: 16px 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .banner-cta:hover {
+            background: var(--gray-100);
+            transform: translateX(4px);
+        }
+
+        .banner-pattern {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            opacity: 0.1;
+        }
+
+        /* Alternative Banner */
+        .banner-alt {
+            background: var(--gray-50);
+            color: var(--gray-800);
+            text-align: center;
+            padding: 100px 40px;
+        }
+
+        .banner-alt h2 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .metric {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--black);
+            color: var(--white);
+            font-weight: 500;
+            margin: 0 4px;
+        }
+
+        /* Messaging */
+        .messaging-grid {
+            display: grid;
+            gap: 2px;
+            background: var(--gray-200);
+            border: 1px solid var(--gray-200);
+        }
+
+        .message-card {
+            background: var(--white);
+            padding: 60px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .message-card:hover {
+            background: var(--gray-50);
+        }
+
+        .message-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: 24px;
+        }
+
+        .message-text {
+            font-size: 24px;
+            line-height: 1.4;
+            font-weight: 300;
+            color: var(--gray-800);
+            letter-spacing: -0.01em;
+        }
+
+        .highlight {
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        .accent-number {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* Website Preview */
+        .website-frame {
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 60px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-logo span {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--gray-600);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-menu a:hover {
+            color: var(--black);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 24px;
+            transition: all 0.2s ease;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-btn.outline {
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .nav-btn.solid {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 60px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 80px;
+            font-weight: 400;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+            color: var(--black);
+            margin-bottom: 32px;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-secondary {
+            color: var(--black);
+            border: 1px solid var(--gray-300);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+        }
+
+        /* Impact Numbers */
+        .impact-bar {
+            background: var(--gray-50);
+            padding: 60px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .impact-stat {
+            position: relative;
+        }
+
+        .impact-number {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .impact-label {
+            font-size: 14px;
+            color: var(--gray-600);
+            letter-spacing: 0.01em;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 100px 60px;
+        }
+
+        .story-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .story-header h2 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .story-header p {
+            font-size: 18px;
+            color: var(--gray-600);
+            font-weight: 300;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .story-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            border-color: var(--gray-300);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .story-image {
+            aspect-ratio: 4/3;
+            background: var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-category {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--white);
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .story-content {
+            padding: 32px;
+        }
+
+        .charity-name {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--black);
+        }
+
+        .story-excerpt {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--gray-600);
+            margin-bottom: 24px;
+        }
+
+        .story-metrics {
+            display: flex;
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .metric-item {
+            font-size: 13px;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .metric-label {
+            color: var(--gray-500);
+        }
+
+        /* Minimal decoration */
+        .decoration-line {
+            width: 40px;
+            height: 1px;
+            background: var(--accent-green);
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Section -->
+    <section class="section">
+        <h1 class="section-title">Identity</h1>
+        <div class="logo-showcase">
+            <div class="logo-variant">
+                <div class="logo-frame">
+                    <div class="logo">
+                        <div class="logo-mark">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="18" stroke="#000" stroke-width="1.5"/>
+                                <circle cx="20" cy="20" r="8" fill="#7C4DFF"/>
+                                <circle cx="20" cy="20" r="12" stroke="#000" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">mykro</span>
+                    </div>
+                </div>
+                <span class="variant-label">Primary Mark</span>
+            </div>
+            <div class="logo-variant">
+                <div class="logo-frame" style="background: #000;">
+                    <div class="logo">
+                        <div class="logo-mark">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="18" stroke="#fff" stroke-width="1.5"/>
+                                <circle cx="20" cy="20" r="8" fill="#7C4DFF"/>
+                                <circle cx="20" cy="20" r="12" stroke="#fff" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text" style="color: white;">mykro</span>
+                    </div>
+                </div>
+                <span class="variant-label">Reversed</span>
+            </div>
+            <div class="logo-variant">
+                <div class="logo-frame">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#000" stroke-width="1.5"/>
+                            <circle cx="20" cy="20" r="8" fill="#000"/>
+                            <circle cx="20" cy="20" r="12" stroke="#000" stroke-width="1"/>
+                        </svg>
+                    </div>
+                </div>
+                <span class="variant-label">Icon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Advertising -->
+    <section class="section">
+        <h2 class="section-title">Campaign</h2>
+        
+        <div class="banner">
+            <div class="banner-content">
+                <h2>Every bet creates <span class="banner-accent">impact.</span></h2>
+                <p>Join 50,000 players transforming gaming into giving. Your operator donates with every wager.</p>
+                <a href="#" class="banner-cta">SELECT YOUR CAUSE →</a>
+            </div>
+            <div class="banner-pattern">
+                <svg viewBox="0 0 500 500" fill="none">
+                    <circle cx="250" cy="250" r="100" stroke="white" stroke-width="1"/>
+                    <circle cx="250" cy="250" r="150" stroke="white" stroke-width="1"/>
+                    <circle cx="250" cy="250" r="200" stroke="white" stroke-width="1"/>
+                    <circle cx="250" cy="250" r="250" stroke="white" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="banner-alt">
+            <h2>This year, your bets funded <span class="metric">2,500 surgeries</span>, 
+            <span class="metric">10,000 textbooks</span>, and <span class="metric">50,000 meals</span>.</h2>
+        </div>
+    </section>
+
+    <!-- Messaging Examples -->
+    <section class="section">
+        <h2 class="section-title">Voice</h2>
+        <div class="messaging-grid">
+            <div class="message-card">
+                <div class="message-label">Win State</div>
+                <p class="message-text">
+                    You won <span class="highlight">$100</span>. 
+                    Save the Children receives <span class="accent-number">$5</span>.
+                </p>
+            </div>
+            <div class="message-card">
+                <div class="message-label">Loss State</div>
+                <p class="message-text">
+                    Not this time. BetCo still donates <span class="accent-number">$2</span> 
+                    to your chosen cause.
+                </p>
+            </div>
+            <div class="message-card">
+                <div class="message-label">Impact Update</div>
+                <p class="message-text">
+                    Your contributions provided <span class="highlight">50 meals</span> 
+                    this month. See full impact →
+                </p>
+            </div>
+            <div class="message-card">
+                <div class="message-label">Onboarding</div>
+                <p class="message-text">
+                    Choose a cause. Every bet contributes to real change.
+                </p>
+            </div>
+            <div class="message-card">
+                <div class="message-label">Achievement</div>
+                <p class="message-text">
+                    Impact level <span class="highlight">5</span> unlocked. 
+                    Donation multiplier now <span class="accent-number">2×</span>.
+                </p>
+            </div>
+            <div class="message-card">
+                <div class="message-label">Prompt</div>
+                <p class="message-text">
+                    Ready to make a difference? Select your charity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Website Preview -->
+    <section class="section">
+        <h2 class="section-title">Digital Experience</h2>
+        <div class="website-frame">
+            <!-- Navigation -->
+            <nav class="nav">
+                <div class="nav-logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="#000" stroke-width="1.5"/>
+                        <circle cx="20" cy="20" r="8" fill="#7C4DFF"/>
+                        <circle cx="20" cy="20" r="12" stroke="#000" stroke-width="1"/>
+                    </svg>
+                    <span>mykro</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">Impact stories</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#" class="nav-btn outline">Sign in</a>
+                    <a href="#" class="nav-btn solid">Get started</a>
+                </div>
+            </nav>
+
+            <!-- Hero -->
+            <div class="hero">
+                <h1 class="hero-title">
+                    Betting with<br>purpose
+                </h1>
+                <p class="hero-subtitle">
+                    Transform every wager into meaningful impact. 
+                    Your operator donates to your chosen charity with each bet.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#" class="btn btn-primary">Choose your charity</a>
+                    <a href="#" class="btn btn-secondary">See how it works</a>
+                </div>
+            </div>
+
+            <!-- Impact Bar -->
+            <div class="impact-bar">
+                <div class="impact-stat">
+                    <div class="impact-number">$2.5M</div>
+                    <div class="impact-label">Total donated</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number">50K+</div>
+                    <div class="impact-label">Active players</div>
+                </div>
+                <div class="impact-stat">
+                    <div class="impact-number">150</div>
+                    <div class="impact-label">Partner charities</div>
+                </div>
+            </div>
+
+            <!-- Stories -->
+            <div class="story-section">
+                <div class="story-header">
+                    <h2>Impact stories</h2>
+                    <p>Real change, powered by your play</p>
+                </div>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <div class="story-image">
+                            <span class="story-category">Healthcare</span>
+                        </div>
+                        <div class="story-content">
+                            <h3 class="charity-name">Doctors Without Borders</h3>
+                            <p class="story-excerpt">
+                                Player contributions funded mobile clinics reaching 5,000 patients 
+                                in remote areas this quarter.
+                            </p>
+                            <div class="story-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">$125K</span>
+                                    <span class="metric-label"> raised</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">89%</span>
+                                    <span class="metric-label"> to goal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-image">
+                            <span class="story-category">Education</span>
+                        </div>
+                        <div class="story-content">
+                            <h3 class="charity-name">Room to Read</h3>
+                            <p class="story-excerpt">
+                                Your bets helped establish 3 new libraries, providing books to 
+                                1,200 children in underserved communities.
+                            </p>
+                            <div class="story-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">$98K</span>
+                                    <span class="metric-label"> raised</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">72%</span>
+                                    <span class="metric-label"> to goal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-image">
+                            <span class="story-category">Environment</span>
+                        </div>
+                        <div class="story-content">
+                            <h3 class="charity-name">Ocean Conservancy</h3>
+                            <p class="story-excerpt">
+                                Together we've removed 50,000 pounds of plastic from oceans 
+                                and protected critical marine habitats.
+                            </p>
+                            <div class="story-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-value">$142K</span>
+                                    <span class="metric-label"> raised</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-value">95%</span>
+                                    <span class="metric-label"> to goal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

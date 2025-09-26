@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mykro Platform Wireframes</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f9fafb;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .wireframe-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .wireframe-card:hover {
+            border-color: #10b981;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .wireframe-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        .wireframe-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .wireframe-link {
+            background: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .wireframe-link:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Mykro Platform Wireframes</h1>
+        <p>Interactive wireframes for all three Mykro platform applications. These wireframes show the planned user interface and user experience flows.</p>
+        
+        <div class="wireframe-grid">
+            <a href="frontend.html" class="wireframe-card">
+                <div class="wireframe-title">💰 BETCO Sports</div>
+                <div class="wireframe-desc">Sports betting interface with charitable donation integration</div>
+                <span class="wireframe-link">View Wireframe</span>
+            </a>
+            
+            <a href="backend.html" class="wireframe-card">
+                <div class="wireframe-title">📊 Admin Dashboard</div>
+                <div class="wireframe-desc">Operator backend for platform management and analytics</div>
+                <span class="wireframe-link">View Wireframe</span>
+            </a>
+            
+            <a href="donor.html" class="wireframe-card">
+                <div class="wireframe-title">❤️ Donor Portal</div>
+                <div class="wireframe-desc">Personal impact tracking and charity management interface</div>
+                <span class="wireframe-link">View Wireframe</span>
+            </a>
+        </div>
+        
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e7eb; text-align: center; color: #6b7280; font-size: 0.875rem;">
+            <p>🔗 <a href="/" style="color: #10b981;">Return to Mykro Platform</a></p>
+        </div>
+    </div>
+</body>
+</html>
