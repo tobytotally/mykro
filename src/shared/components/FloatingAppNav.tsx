@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUpIcon, PaintBrushIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
 
 const apps = [
-  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/home' },
   { name: 'BETCO', href: '/betco' },
   { name: 'Donor', href: '/donor' },
   { name: 'Admin', href: '/operator-admin' },
@@ -32,8 +32,8 @@ export function FloatingAppNav() {
             className="mb-3 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden"
           >
             {apps.map((app) => {
-              const isActive = location.pathname.startsWith(app.href) && app.href !== '/' || 
-                              (app.href === '/' && location.pathname === '/');
+              const isActive = location.pathname.startsWith(app.href) && app.href !== '/home' ||
+                              (app.href === '/home' && location.pathname === '/home');
               
               return (
                 <Link

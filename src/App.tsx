@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { BrandProvider } from './contexts/BrandContext';
 import { FrontendApp } from './apps/frontend/FrontendApp';
@@ -25,7 +25,7 @@ function AppContent() {
   const isBrandingPreview = location.pathname === '/betco/branding-preview';
   
   // Check if we're on website pages (not app pages)
-  const isWebsitePage = ['/', '/industries', '/impact', '/partners', '/about', '/technology', '/mykro/giving', '/mykro/solutions'].includes(location.pathname);
+  const isWebsitePage = ['/home', '/industries', '/impact', '/partners', '/about', '/technology', '/mykro/giving', '/mykro/solutions'].includes(location.pathname);
   
   return (
     <>
@@ -33,12 +33,15 @@ function AppContent() {
       {isWebsitePage && !isBrandingPreview && <PersistentNavigation />}
       
       <Routes>
+        {/* Default redirect to betting app */}
+        <Route path="/" element={<Navigate to="/betco" replace />} />
+
         {/* Landing page with app selection */}
-        <Route path="/" element={<DigitalExperiencePage />} />
-        
+        <Route path="/home" element={<DigitalExperiencePage />} />
+
         {/* Industries page */}
         <Route path="/industries" element={<IndustriesPage />} />
-        
+
         {/* Website pages */}
         <Route path="/impact" element={<ImpactPage />} />
         <Route path="/partners" element={<PartnersPage />} />
@@ -46,17 +49,17 @@ function AppContent() {
         <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/tasks" element={<TasksPage />} />
         <Route path="/test-branding" element={<TestBranding />} />
-        
+
         {/* Mykro Ecosystem Pages */}
         <Route path="/mykro/giving" element={<MykroGiving />} />
         <Route path="/mykro/solutions" element={<MykroSolutions />} />
-        
+
         {/* Betting App - moved to /betco */}
         <Route path="/betco/*" element={<FrontendApp />} />
-        
+
         {/* Operator Admin Routes */}
         <Route path="/operator-admin/*" element={<OperatorAdminApp />} />
-        
+
         {/* Donor Portal Routes */}
         <Route path="/donor/*" element={<DonorPortalApp />} />
       </Routes>
