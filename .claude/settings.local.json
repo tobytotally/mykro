@@ -39,7 +39,9 @@
       "Bash(npx playwright:*)",
       "Bash(git init:*)",
       "Bash(npx vite:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   },
