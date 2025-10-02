@@ -33,8 +33,8 @@ function AppContent() {
       {isWebsitePage && !isBrandingPreview && <PersistentNavigation />}
       
       <Routes>
-        {/* Default redirect to betting app */}
-        <Route path="/" element={<Navigate to="/betco" replace />} />
+        {/* Default redirect to home page */}
+        <Route path="/" element={<Navigate to="/home" replace />} />
 
         {/* Landing page with app selection */}
         <Route path="/home" element={<DigitalExperiencePage />} />

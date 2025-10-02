@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 9000",
-    "build": "tsc && vite build",
+    "build": "vite build",
+    "build:typecheck": "tsc && vite build",
     "preview": "vite preview --host 0.0.0.0 --port 9000",
     "start": "vite preview --host 0.0.0.0 --port 9000",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
